@@ -3,8 +3,8 @@ import Logo from "../assets/Logo.png"
 
 export function Header() {
   return (
-    <header className="w-full h-[18.5rem] bg-profile p-16 relative overflow-hidden">
-      <img className="m-auto" src={Logo} alt="Logo" />
+    <header className="w-full h-[18.5rem] bg-profile p-16 relative overflow-hidden max-md:h-60">
+      <img className="m-auto max-md:h-20" src={Logo} alt="Logo" />
 
       <img 
         src={Effect} 

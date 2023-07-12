@@ -41,9 +41,9 @@ export function Home() {
       <Profile />
       
       {/*iNPUT*/}
-      <div className="w-[54rem] mx-auto mt-[12.25rem]">
+      <div className="w-[54rem] mx-auto mt-[12.25rem] max-sm:w-full max-md:w-full max-md:px-8 max-sm: px-8">
         <div className="flex items-center justify-between">
-          <h2 className="text-subtitle font-bold text-lg">Publicações</h2>
+          <h2 className="text-subtitle font-bold text-lg max-md:text-base">Publicações</h2>
           <span className="text-span text-xs">
             {postsFiltered ? postsFiltered.length : posts.length} publicações
           </span>
@@ -51,14 +51,26 @@ export function Home() {
 
         <input
           type="text"
-          className="bg-input w-full px-4 py-3 mt-6 text-text rounded-md border-[1px] border-label focus:outline-none focus:ring focus:ring-blue placeholder:text-label"
+          className="bg-input w-full px-4 py-3 mt-6 text-text rounded-md border-[1px] border-label focus:outline-none focus:ring focus:ring-blue placeholder:text-label max-md:placeholder:text-sm"
           placeholder="Buscar conteúdo"
           onChange={e => setSearchPost(e.currentTarget.value)}
         />
       </div>
 
       {/*POSTS*/}
-      <main className="w-[54rem] mx-auto flex items-center flex-wrap gap-8 mt-12">
+      <main 
+        className="
+          w-[54rem] 
+          mx-auto 
+          flex 
+          items-center 
+          flex-wrap 
+          gap-8 
+          mt-12 
+          max-md:flex-col
+          max-md:w-full
+        "
+      >
         {postsFiltered ? (
           postsFiltered.map((post) => {
             if (!post) {
