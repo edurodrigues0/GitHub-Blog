@@ -13,6 +13,8 @@ interface PostBoxProps {
 }
 
 export function PostBox({ data }: PostBoxProps) {
+  const formattedDate = formatRelativeDate(data.created_at)
+  
   return (
     <a 
       href={`/post/${data.number}`} 
@@ -23,7 +25,7 @@ export function PostBox({ data }: PostBoxProps) {
           {data.title}
         </h1>
         <span className="text-sm text-span leading-snug mt-[5px] max-md:text-xs">
-          {formatRelativeDate(data.created_at)}
+          {formattedDate}
         </span>
       </div>
 

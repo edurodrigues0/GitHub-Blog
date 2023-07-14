@@ -14,30 +14,18 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ children }) => {
         children={children}
         className="whitespace-pre-wrap"
         components={{
-          p: ({...props}) => (
-            <p className="text-text font-normal text-sm" {...props} />
-          ),
-          a: ({...props}) => (
-            <a className="text-blue font-normal text-sm hover:underline" target="blank" {...props} />
-          ),
-          strong: ({...props}) => (
-            <strong className="text-text font-bold text-sm" {...props} />
-          ),
-          ul: ({...props}) => (
-            <ul className="ml-5" {...props} />
-          ),
-          img: ({...props}) => (
-            <img className="max-w-full object-cover" {...props} />
-          ),
-          h1: ({...props}) => (
-            <h1 className="text-text font-bold text-2xl" {...props} />
-          ),
+          p: (props) => <p className="text-text font-normal text-sm" {...props} />,
+          a: (props) => <a className="text-blue font-normal text-sm hover:underline" target="_blank" {...props} />,
+          strong: (props) => <strong className="text-text font-bold text-sm" {...props} />,
+          ul: (props) => <ul className="ml-5" {...props} />,
+          img: (props) => <img className="max-w-full object-cover" {...props} />,
+          h1: (props) => <h1 className="text-text font-bold text-2xl" {...props} />,
           code({ node, inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || "")
 
             const meta = node?.data?.meta as string | undefined;
 
-            return !inline && match ?(
+            return !inline && match ? (
               <SyntaxHighlighter
                 language={match[1]}
                 PreTag="div"

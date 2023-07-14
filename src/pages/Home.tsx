@@ -13,21 +13,20 @@ interface Post {
   number: number
 }
 
-type PostFiltered = Post | undefined;
-
 export function Home() {
   const [posts, setPosts] = useState<Post[]>([])
   const [searchPost, setSearchPost] = useState('')
-  const [postsFiltered, setPostsFiltered] = useState<PostFiltered[]>([])
+  const [postsFiltered, setPostsFiltered] = useState<Post[]>([])
 
   useEffect(() => {
     api.get("/repos/edurodrigues0/GitHub-Blog/issues").then((response) => {
       setPosts(response.data)
+      setPostsFiltered(response.data)
     })
   }, [])
 
   useEffect(() => {
-    const filteredPosts = posts.filter(post => 
+    const filteredPosts = posts.filter((post) => 
       post.title.toLowerCase().includes(searchPost.toLowerCase())
     )
 
@@ -44,7 +43,7 @@ export function Home() {
         <div className="flex items-center justify-between">
           <h2 className="text-subtitle font-bold text-lg max-md:text-base">Publicações</h2>
           <span className="text-span text-xs">
-            {postsFiltered ? postsFiltered.length : posts.length} publicações
+            {postsFiltered.length} publicações
           </span>
         </div>
 
@@ -70,29 +69,9 @@ export function Home() {
           max-md:w-full
         "
       >
-        {postsFiltered ? (
-          postsFiltered.map((post) => {
-            if (!post) {
-              return
-            }
-
-            return (
-              <PostBox
-                key={post.id}
-                data={post}
-              />
-            )
-          })
-        ) : (
-          posts.map((post) => {
-            return (
-              <PostBox
-                key={post.id}
-                data={post}
-              />
-            )
-          })
-        )}
+        {postsFiltered.map((post) => (
+          <PostBox key={post.id} data={post} />
+        ))}
       </main>
     </div>
   );

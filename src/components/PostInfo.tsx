@@ -20,7 +20,7 @@ interface PostInfoProps {
 
 export function PostInfo({data}: PostInfoProps) {
   if (data === undefined) {
-    return
+    return <h1>ERRO 404: Página nao encontrada</h1>
   }
 
   return (
@@ -33,7 +33,7 @@ export function PostInfo({data}: PostInfoProps) {
 
         <Link href={data.html_url} target="blank">
           VER NO GITHUB
-          <img src={FaUpRightFromSquare} />
+          <img src={FaUpRightFromSquare} alt="Link para o GitHub" />
         </Link>
       </div>
 

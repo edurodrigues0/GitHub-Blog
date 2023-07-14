@@ -30,7 +30,7 @@ export function Post() {
   }, [issueNumber]);
 
   if (!issuePost) {
-    return;
+    return null;
   }
 
   return (
