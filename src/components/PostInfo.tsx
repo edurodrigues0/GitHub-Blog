@@ -24,7 +24,7 @@ export function PostInfo({data}: PostInfoProps) {
   }
 
   return (
-    <div className="p-8 w-[54rem] h-[10.5rem] bg-profile rounded-[10px] absolute top-[13rem] left-[calc(50%-54rem/2)]">
+    <div className="p-8 w-[54rem] h-[10.5rem] bg-profile rounded-[10px] absolute top-[13rem] left-[calc(50%-54rem/2)] max-sm:w-full max-sm:left-0">
       <div className="flex flex-1 items-center justify-between">
         <Link href="/" target="_self">
           <FaChevronLeft />
@@ -37,24 +37,24 @@ export function PostInfo({data}: PostInfoProps) {
         </Link>
       </div>
 
-      <h1 className="text-2xl text-title mt-5">
+      <h1 className="text-2xl text-title mt-5 max-sm:text-base">
         { data.title }
       </h1>
 
       <div className="flex items-center gap-6 mt-2">
-        <div className="flex items-center gap-2">
-          <FaGithub color="#3A536B" size={18} />
-          <span className="text-subtitle">{data.user.login}</span>
+        <div className="flex items-center gap-2 max-sm:mt-1">
+          <FaGithub color="#3A536B" size={18} className="max-sm:w-4" />
+          <span className="text-subtitle max-sm:text-[0.625rem]">{data.user.login}</span>
         </div>
 
-        <div className="flex items-center gap-2">
-          <FaCalendar color="#3A536B" size={18} />
-          <span className="text-subtitle">{formatRelativeDate(data.created_at)}</span>
+        <div className="flex items-center gap-2 max-sm:mt-1">
+          <FaCalendar color="#3A536B" size={18}className="max-sm:w-4" />
+          <span className="text-subtitle max-sm:text-[0.625rem]">{formatRelativeDate(data.created_at)}</span>
         </div>
 
-        <div className="flex items-center gap-2">
-          <FaComment color="#3A536B" size={18} />
-          <span className="text-subtitle">{data.comments} comentários</span>
+        <div className="flex items-center gap-2 max-sm:mt-1">
+          <FaComment color="#3A536B" size={18} className="max-sm:w-4" />
+          <span className="text-subtitle max-sm:text-[0.625rem]">{data.comments} comentários</span>
         </div>
       </div>
     </div>

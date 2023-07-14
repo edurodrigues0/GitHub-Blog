@@ -23,7 +23,6 @@ export function Home() {
   useEffect(() => {
     api.get("/repos/edurodrigues0/GitHub-Blog/issues").then((response) => {
       setPosts(response.data)
-      console.log(response.data)
     })
   }, [])
 

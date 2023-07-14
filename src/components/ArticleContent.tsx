@@ -9,7 +9,7 @@ interface ArticleContentProps {
 
 export const ArticleContent: React.FC<ArticleContentProps> = ({ children }) => {
   return (
-    <article className="flex flex-col gap-6 text-text mt-[7.5rem] mx-auto w-[54rem] px-8 py-10 overflow-hidden">
+    <article className="flex flex-col gap-6 text-text mt-[7.5rem] mx-auto w-[54rem] px-8 py-10 overflow-hidden max-sm:w-full">
       <ReactMarkdown
         children={children}
         className="whitespace-pre-wrap"

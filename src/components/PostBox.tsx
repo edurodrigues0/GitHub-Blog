@@ -15,7 +15,7 @@ interface PostBoxProps {
 export function PostBox({ data }: PostBoxProps) {
   return (
     <a 
-      href={`http://localhost:5173/post/${data.number}`} 
+      href={`/post/${data.number}`} 
       className="w-[26rem] h-[16.25rem] p-8 bg-post rounded-[10px] max-md:w-[20rem]"
     >
       <div className="flex items-start justify-between max-sm:flex-col max-sm:gap-1">

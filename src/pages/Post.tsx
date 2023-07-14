@@ -26,7 +26,6 @@ export function Post() {
       .get(`/repos/edurodrigues0/GitHub-Blog/issues/${issueNumber}`)
       .then((response) => {
         setIssuePost(response.data);
-        console.log(response.data);
       });
   }, [issueNumber]);
 
